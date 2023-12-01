@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {Menu} from "../../data/Menu";
 import Links from './Links';
 import ButtonsMenu from './ButtonsMenu';
 
 const Navbar = () => {
+    const [log,setLog]=useState();
+    
+    const Ingresar =(data)=>{
+        if(data.usuario =="admin"&& data.contraseña==123){
+            setLog(true);
+        }
+    }
+    const Salir=()=>{
+        if(log===true){
+            setLog(false);
+        }
+    }
     return (
         <div>
             <nav className="navbar navbar-expand-lg bg-dark" >
@@ -27,7 +39,7 @@ const Navbar = () => {
                         </ul>
                         <form className="d-flex" role="search">
                             <div className="text-end">
-                            <ButtonsMenu/>
+                            <ButtonsMenu log={log} Ingresar={Ingresar} Salir={Salir}/>
                             </div>
                         </form>
                     </div>
