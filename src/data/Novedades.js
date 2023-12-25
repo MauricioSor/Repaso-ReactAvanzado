@@ -1,4 +1,4 @@
-[
+export const Novedades=[
     {
         "id": 1,
         "title": "Curso de ReactJs",
